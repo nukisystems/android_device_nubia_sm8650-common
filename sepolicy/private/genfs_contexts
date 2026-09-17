@@ -1,0 +1,2 @@
+# Touchscreen
+genfscon sysfs /devices/platform/goodix_ts.0/rotation    u:object_r:sysfs_touchpanel_rotation:s0

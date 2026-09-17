@@ -1,3 +1,4 @@
-
 # Bluetooth
 user=bluetooth seinfo=default name=com.android.bluetooth domain=bluetooth type=bluetooth_data_file levelFrom=all isPrivApp=true
+
+user=system seinfo=platform name=org.lineageos.touchscreenrotation domain=touchscreenrotation_app type=system_app_data_file

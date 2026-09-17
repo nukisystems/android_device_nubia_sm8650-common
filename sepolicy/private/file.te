@@ -1,0 +1,2 @@
+# Touchscreen
+type sysfs_touchpanel_rotation, fs_type, sysfs_type;
