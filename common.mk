@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
 # Camera
 $(call soong_config_set_bool,camera,override_format_from_reserved,true)
 
+# Codec2
+PRODUCT_PACKAGES += \
+    libqti_c2_store_abi_check
+
 # Display
 $(call soong_config_set,surfaceflinger,frame_rate_category_high,120)
 
