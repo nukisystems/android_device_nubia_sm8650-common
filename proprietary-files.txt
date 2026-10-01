@@ -310,7 +310,7 @@ vendor/lib64/libqsegnet.so
 vendor/lib64/libqshcamera.so
 vendor/lib64/libskia.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libsynx.so
-vendor/lib64/libtensorflowlite_gpu_jni.so
+vendor/lib64/libtensorflowlite_gpu_jni.so:vendor/lib64/libtensorflowlite_gpu_jni_oem.so;FIX_SONAME
 vendor/lib64/libtensorflowlite_jni.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libtflite_model_bnudc.so
 vendor/lib64/libtflite_model_denoised_528_528.so

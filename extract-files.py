@@ -136,6 +136,13 @@ blob_fixups: blob_fixups_user_type = {
         'libtensorflowlite_c_vendor.so',
     ),
     (
+        'vendor/lib64/libin_display.so',
+        'vendor/lib64/libyuv_udc.so',
+    ): blob_fixup().replace_needed(
+        'libtensorflowlite_gpu_jni.so',
+        'libtensorflowlite_gpu_jni_oem.so',
+    ),
+    (
         'vendor/lib64/libdpps.so',
         'vendor/lib64/libsnapdragoncolor-manager.so',
     ): blob_fixup()
