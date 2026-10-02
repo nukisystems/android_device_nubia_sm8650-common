@@ -98,6 +98,7 @@ vendor.qc2audio.suspend.enabled=true
 vendor.voice.path.for.pcm.voip=true
 
 # Bluetooth
+bluetooth.a2dp.source.lhdcv5_priority.config=-1
 bluetooth.profile.a2dp.source.enabled=true
 bluetooth.profile.avrcp.target.enabled=true
 bluetooth.profile.avrcp.controller.enabled=true
