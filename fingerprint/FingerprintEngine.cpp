@@ -76,23 +76,25 @@ void FingerprintEngine::sendFingerDownLocked() {
 }
 
 void FingerprintEngine::notifyFodUi(bool ready) {
-    if (mDevice == nullptr) {
-        return;
+    if (mDevice == nullptr) return;
+
+    if (ready) {
+        {
+            std::lock_guard<std::mutex> lock(mFodUiMutex);
+            mFodUiReady = true;
+            if (mFingerDownPending) sendFingerDownLocked();
+        }
+        // let the HAL event thread reach waitSensorUIReady
+        std::this_thread::sleep_for(std::chrono::milliseconds(30));
     }
 
     LOG(INFO) << "fodUiReady: " << ready;
-
     int error = mDevice->sendCustomizedCommand(mDevice, FOD_UI_READY_COMMAND, ready);
-    if (error) {
-        LOG(ERROR) << "sendCustomizedCommand failed: " << error;
-    }
+    if (error) LOG(ERROR) << "sendCustomizedCommand failed: " << error;
 
-    std::lock_guard<std::mutex> lock(mFodUiMutex);
-
-    mFodUiReady = ready;
-
-    if (ready && mFingerDownPending) {
-        sendFingerDownLocked();
+    if (!ready) {
+        std::lock_guard<std::mutex> lock(mFodUiMutex);
+        mFodUiReady = false;
     }
 }
 
